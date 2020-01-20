@@ -59,19 +59,23 @@ class StopData(Model):
     stop_name = CharField()
     way = CharField()
     route_name = ForeignKeyField(RouteData, related_name="bus")
-    stop_id = IntegerField(null=True)
+    # stop_id = IntegerField(null=True)
 
     class Meta:
         database = MY_DATABASE
 
 
 class ServerTimeFix(Model):
+    bus_id = ForeignKeyField()
     request_time = TimeField()
     estimated_time = TimeField()
 
     class Meta:
         database = MY_DATABASE
 
+
+class Buses(Model):
+    bus_name = TextField()
 
 DATABASE_TIMETABLES_LIST = [RouteData, ArrivalTime, StopData, ServerTimeFix]
 
