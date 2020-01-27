@@ -6,7 +6,7 @@ migrator = SqliteMigrator(my_db)
 title_field = IntegerField(null=True)
 
 migrate(
-    migrator.add_column('stopdata', 'coordinates', IntegerField),
+    migrator.add_column('stopdata', 'coordinates', IntegerField(null=True)),
 )
 
 migrate(
